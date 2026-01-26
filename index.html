@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person</title>
+    <style>
+        body {
+            background-color: #ffeef2; /* Soft Pink */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #d63384; }
+        
+        .gif-container img {
+            width: 200px;
+            border-radius: 15px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yesButton {
+            background-color: #ff4d6d;
+            color: white;
+            margin-right: 10px;
+        }
+
+        #noButton {
+            background-color: #adb5bd;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="gif-container">
+            <img id="displayGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3JnB0X3NpZD1mcmVzaF9nZW5lcmF0aW9uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpNUMo/giphy.gif" alt="cute gif">
+        </div>
+        <h1 id="question">Will you be my Valentine? ❤️</h1>
+        
+        <div class="buttons">
+            <button id="yesButton" onclick="handleYesClick()">Yes</button>
+            <button id="noButton" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            "Are you sure?",
+            "Really sure??",
+            "Think again!",
+            "Last chance...",
+            "Surely not?",
+            "You're breaking my heart ;(",
+            "I'm gonna cry...",
+            "Okay, fine. Ask again?"
+        ];
+
+        let messageIndex = 0;
+
+        function moveNoButton() {
+            const noBtn = document.getElementById('noButton');
+            const yesBtn = document.getElementById('yesButton');
+            
+            // Make the No button say funny things
+            noBtn.innerHTML = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            // Make the Yes button grow!
+            const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize * 1.5) + 'px';
+            yesBtn.style.padding = (currentSize * 1.2) + 'px';
+
+            // Move the No button randomly
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = "absolute";
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        function handleYesClick() {
+            document.getElementById('question').innerHTML = "Yay! See you on the 14th! 😘";
+            document.querySelector('.buttons').style.display = 'none';
+            document.getElementById('displayGif').src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3JnB0X3NpZD1mcmVzaF9nZW5lcmF0aW9uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/MDJ9IbxxvDUQM/giphy.gif";
+        }
+    </script>
+</body>
+</html>
