@@ -63,7 +63,7 @@
         <div class="gif-container">
             <img id="displayGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3eGZic3BqZzR3JnB0X3NpZD1mcmVzaF9nZW5lcmF0aW9uJmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpNUMo/giphy.gif" alt="cute gif">
         </div>
-        <h1 id="question">Bangaram Will you be my Valentine? ❤️</h1>
+        <h1 id="question">Bangaram will you be my Valentine? ❤️</h1>
         
         <div class="buttons">
             <button id="yesButton" onclick="handleYesClick()">Yes</button>
